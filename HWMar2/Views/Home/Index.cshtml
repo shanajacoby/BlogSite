@@ -1,0 +1,35 @@
+﻿@using BlogSite.Data 
+@model HomePageViewModel
+        <!-- Page Content -->
+        <div class="container">
+
+            <div class="row">
+
+                <!-- Blog Entries Column -->
+                <div class="col-md-8">
+
+                    <h1 class="my-4">
+                        LIT Blog
+                        <small>Nothing to see here...</small>
+                    </h1>
+                    @foreach (BlogPost post in Model.Posts)
+                    {
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h2 class="card-title">
+                                    <a href="/home/viewblog?id=@post.Id">@post.Title</a>
+                                </h2>
+                                <p class="card-text">@post.PostText</p>
+                                <a href="/home/viewblog?id=@post.Id" class="btn btn-primary">Read More &rarr;</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                                Posted on @post.Date.ToLongDateString() by
+                                <a href="#">Shana Basch</a>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+</div>
+            </div>
